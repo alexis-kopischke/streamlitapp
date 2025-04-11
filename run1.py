@@ -6,12 +6,10 @@ import base64
 
 
 
-@st.cache(suppress_st_warning=True)
+@st.cache_data
 def get_fvalue(val):
-    feature_dict = {"No":1,"Yes":2}
-    for key,value in feature_dict.items():
-        if val == key:
-            return value
+    feature_dict = {"No": 1, "Yes": 2}
+    return feature_dict.get(val, None)  # Using .get() for cleaner lookup
 
 def get_value(val,my_dict):
     for key,value in my_dict.items():
